@@ -12,7 +12,6 @@
 @copyright: Copyright (C) 2016 Chetan Team. All rights reserved.
 @license: http://www.apache.org/licenses/LICENSE-2.0 Apache License
 """
-
 #'
 
 import copy
@@ -21,12 +20,12 @@ import requests
 class sentiments:
 
     url = "http://fricles.com:8080/fricles/api/v1/get_sentiments"
-    data = { "inputs" : {"api_key" :  "",  "text" :""} }
+    data =  {"api_key" :  "",  "text" :""} 
 
     def get_sentiments(self, api_key, text):
         inputData = copy.deepcopy(self.data.copy())
-        inputData["inputs"]["text"] = text
-        inputData["inputs"]["api_key"] = api_key
+        inputData["text"] = text
+        inputData["api_key"] = api_key
         try:
             r = requests.post(self.url, data=inputData)
             print r.status_code
